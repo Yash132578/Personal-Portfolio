@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #1e293b;
+  position: sticky;
+  top: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px;
+  text-align: center;
+}
+
+/* HERO */
+#home {
+  background: #111827;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 20px;
+  background: #38bdf8;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+/* CARDS */
+.card {
+  background: #1e293b;
+  margin: 15px auto;
+  padding: 20px;
+  width: 60%;
+  border-radius: 10px;
+}
+
+/* ========================= */
+/* PROJECT SECTION (NEW ADD) */
+/* ========================= */
+
+#projects {
+  background: #0b1220;
+}
+
+.project-card {
+  background: #1e293b;
+  padding: 25px;
+  margin: 20px auto;
+  width: 70%;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.project-card h4 {
+  margin-top: 15px;
+  color: #94a3b8;
+}
+
+.project-card ul {
+  margin-left: 20px;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-card a:hover {
+  color: #0ea5e9;
+}
