@@ -1,3 +1,2 @@
-function showMessage() {
-  alert("Welcome to Yaswanth Kumar Portfolio 🚀");
-}
+// Small progressive enhancement: keep the static portfolio fully usable without JavaScript.
+document.documentElement.classList.add('js-ready');
