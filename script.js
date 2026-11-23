@@ -1,3 +1,35 @@
+const welcome = document.getElementById('welcome-overlay');
+const enterButton = document.getElementById('welcome-enter');
+function enterPortfolio() {
+  welcome.classList.remove('show');
+  welcome.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  document.body.classList.add('portfolio-entered');
+  const field=document.getElementById('nano-field');
+  if(field && !field.childElementCount) {
+    const colors=['#51eaff','#b5f9ff','#ffad5d','#31cfff'];
+    for(let n=0;n<76;n++) {
+      const particle=document.createElement('i');
+      particle.style.setProperty('--tx',`${8+Math.random()*84}%`);
+      particle.style.setProperty('--ty',`${6+Math.random()*88}%`);
+      particle.style.setProperty('--sx',`${(Math.random()-.5)*760}px`);
+      particle.style.setProperty('--sy',`${(Math.random()-.5)*760}px`);
+      particle.style.setProperty('--size',`${2+Math.random()*3}px`);
+      particle.style.setProperty('--dur',`${.8+Math.random()*.9}s`);
+      particle.style.setProperty('--delay',`${Math.random()*.65}s`);
+      particle.style.setProperty('--particle',colors[Math.floor(Math.random()*colors.length)]);
+      field.appendChild(particle);
+    }
+  }
+  document.querySelector('.hero')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+if(welcome && enterButton) {
+  document.body.style.overflow='hidden';
+  window.setTimeout(()=>{welcome.classList.add('show');welcome.setAttribute('aria-hidden','false');enterButton.focus();},180);
+  enterButton.addEventListener('click',enterPortfolio);
+  welcome.addEventListener('click',event=>{if(event.target===welcome)enterPortfolio();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&welcome.classList.contains('show'))enterPortfolio();});
+}
 document.documentElement.classList.add('js-ready');
 // Reveal credentials and experience only as they enter view; honor reduced-motion preferences.
 const revealItems = document.querySelectorAll('.experience,.credential-card,.achievement-card,.skill-group,.degree');
@@ -36,3 +68,4 @@ function addMessage(text,kind) { const bubble=document.createElement('div'); bub
 function ask(q) { const clean=q.trim(); if(!clean)return; messages.querySelector('.suggestions')?.remove(); addMessage(clean,'user'); input.value=''; window.setTimeout(()=>addMessage(answerFor(clean),'bot'),260); }
 form.addEventListener('submit',e=>{e.preventDefault();ask(input.value);});
 messages.addEventListener('click',e=>{if(e.target.matches('.suggestions button'))ask(e.target.textContent);});
+
